@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<p> LOGGED lin</p>
+<p th:if="${session.userID != null} and ${session.role != null}">
+    TEMP: Logged in as id: <span th:text="${session.userID}"></span> role: <span th:text="${session.role}"></span>
+</p>
+
 </body>
 </html>
