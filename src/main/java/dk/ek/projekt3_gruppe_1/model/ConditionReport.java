@@ -4,14 +4,14 @@ public class ConditionReport {
     private int conditionRepId;
     private int clientId;
     private int userId;
-    private int vehicleId;
+    private int vehicleNo;
     private int vin;
 
-    public ConditionReport(int conditionRepId, int clientId, int userId, int vehicleId, int vin) {
+    public ConditionReport(int conditionRepId, int clientId, int userId, int vehicleNo, int vin) {
         this.conditionRepId = conditionRepId;
         this.clientId = clientId;
         this.userId = userId;
-        this.vehicleId = vehicleId;
+        this.vehicleNo = vehicleNo;
         this.vin = vin;
     }
 
@@ -41,12 +41,12 @@ public class ConditionReport {
         this.userId = userId;
     }
 
-    public int getVehicleId() {
-        return vehicleId;
+    public int getVehicleNo() {
+        return vehicleNo;
     }
 
-    public void setVehicleId(int vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVehicleNo(int vehicleNo) {
+        this.vehicleNo = vehicleNo;
     }
 
     public int getVin() {
