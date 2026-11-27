@@ -9,27 +9,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class LoginController {
 
     @Autowired
     UserRepo userRepo;
 
-    @GetMapping("/")
-    public String loginStart(Model model, @RequestParam(name = "loginError", defaultValue = "false") boolean loginError){
-        
+    @GetMapping({"/", "/login"})
+    public String login(Model model,
+                        @RequestParam(name = "loginError", defaultValue = "false") boolean loginError) {
+
         model.addAttribute("loginError", loginError);
         return "login";
     }
 
+
     @PostMapping("/login")
-    public String login(@RequestParam String username,
+    public String login(Model model,
+                        @RequestParam String username,
                         @RequestParam String password,
-                        HttpSession session) {
+                        HttpSession session,
+                        @RequestParam(name = "loginError", defaultValue = "false") boolean loginError) {
+        model.addAttribute("loginError", loginError);
         Integer userId = userRepo.findUserIdByCredentials(username, password);
         String role = userRepo.findRoleByCredentials(username, password);
         if (userId == null || role.isEmpty()) {
-            return "redirect:/index?loginError=true";
+            return "redirect:/login?loginError=true";
         }
 
         session.setAttribute("userID", userId);

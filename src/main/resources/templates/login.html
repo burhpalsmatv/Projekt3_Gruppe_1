@@ -4,33 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
-  <link rel="stylesheet" th:href="@{/style.css}">
+  <link rel="stylesheet" th:href="@{/templogin.css}">
 </head>
 
 <body>
+<header class="header">
+  <div>
+    <h2>header</h2>
+  </div>
+</header>
 
 <main>
   <div class="loginPanel">
-    <!--
-    Redo creation error
 
-    <p class="loginError" th:if="${creationError}" role="alert">
-      Account already exists.
+    <p class="loginError" th:if="${loginError}" role="alert">
+      Forkert brugernavn eller adgangskode.
     </p>
-    -->
-
 
 
     <form class="loginForm" th:action="@{/login}" method="post">
 
-      <label for="username">Username</label>
+      <label for="username">Brugernavn:</label>
       <input id="username" name="username" type="text" required>
 
-      <label for="password">Password</label>
+      <label for="password">Adgangskode:</label>
       <input id="password" name="password" type="password"
              autocomplete="current-password" required>
 
-      <button class="loginSubmit" type="submit">Log in</button>
+      <button class="loginSubmit" type="submit">Log ind</button>
     </form>
   </div>
 </main>
