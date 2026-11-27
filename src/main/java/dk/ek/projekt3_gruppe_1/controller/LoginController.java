@@ -17,8 +17,7 @@ public class LoginController {
 
     @GetMapping("/")
     public String loginStart(Model model, @RequestParam(name = "loginError", defaultValue = "false") boolean loginError){
-        //List<User> listOfUsers = userRepo.getAllUsers();
-        //model.addAttribute("listOfUsers", listOfUsers);
+        
         model.addAttribute("loginError", loginError);
         return "login";
     }
